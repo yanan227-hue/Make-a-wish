@@ -31,14 +31,16 @@ export const MagicTransition: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden"
-      // Disney Dream style background: Deep blue/purple gradient
       style={{ 
-        background: 'radial-gradient(circle at center, #2b1055 0%, #000000 100%)',
+        backgroundImage: 'url("https://tpy2jifytinfjc1o.public.blob.vercel-storage.com/magic.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
-        {/* Floating Clouds / Fog */}
-        <div className="absolute inset-0 opacity-30 pointer-events-none">
-            <div className="absolute top-1/2 left-0 w-full h-64 bg-gradient-to-t from-purple-900 to-transparent mix-blend-screen filter blur-3xl animate-pulse"></div>
+        {/* Floating Clouds / Fog - Adjusted blend mode for image bg */}
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-1/2 left-0 w-full h-64 bg-white/10 filter blur-3xl animate-pulse"></div>
         </div>
 
         {/* Stars */}
@@ -83,7 +85,8 @@ export const MagicTransition: React.FC = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 1.5 }}
-                className="font-['Great_Vibes'] text-6xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] to-[#b8860b] drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] mb-4"
+                // Reduced size from text-6xl md:text-8xl to text-3xl md:text-5xl (approx 3 sizes down)
+                className="font-['Great_Vibes'] text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-b from-[#ffd700] to-[#b8860b] drop-shadow-[0_0_15px_rgba(255,215,0,0.5)] mb-4"
             >
                 Believe in Magic
             </motion.h2>
@@ -98,7 +101,7 @@ export const MagicTransition: React.FC = () => {
         </div>
 
         {/* Bottom Silhouette (optional hint of clouds/land) */}
-        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black/60 to-transparent"></div>
     </motion.div>
   );
 };
